@@ -12,8 +12,8 @@ def commit_transaction():
     DATABASE.commit()
 
 
-# Commit transactions every 10 minutes
-SCHEDULER.add_job(commit_transaction, 'interval', minutes=10)
+# Commit transactions every 10 seconds
+SCHEDULER.add_job(commit_transaction, 'interval', secondss=10)
 SCHEDULER.start()
 
 from app import routes
