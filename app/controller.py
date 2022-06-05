@@ -19,7 +19,7 @@ def get_cars(color_filter: str, model_filter: str) -> list:
 
 
 def get_car_by_id(car_id: int) -> list:
-    query = f"SELECT id, brand, model, color, dealer_id FROM cars WHERE id=={car_id}"
+    query = f"SELECT id, brand, model, color, dealer_id FROM cars WHERE id={car_id}"
     records = DATABASE.execute(query).fetchall()
     return [Car(id=r[0], brand=r[1], model=r[2], color=r[3], dealer_id=r[4]) for r in records]
 
@@ -31,7 +31,7 @@ def store_car(car: Car) -> None:
 
 
 def delete_car(car_id: int) -> None:
-    query = f"DELETE from cars WHERE id=={car_id}"
+    query = f"DELETE from cars WHERE id={car_id}"
     DATABASE.execute(query)
 
 
