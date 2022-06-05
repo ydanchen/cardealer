@@ -13,7 +13,7 @@ def commit_transaction():
 
 
 # Commit transactions every 10 seconds
-SCHEDULER.add_job(commit_transaction, 'interval', secondss=10)
+SCHEDULER.add_job(commit_transaction, 'interval', seconds=10)
 SCHEDULER.start()
 
 from app import routes

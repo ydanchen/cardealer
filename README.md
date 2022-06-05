@@ -21,11 +21,52 @@ There are two endpoints:
     * list - `GET` method
     * list with filters by color, model - `GET` method with query parameters, e.g.: `/cars?color=White`
 
+Database already seeded with fake data. To re-seed DB, use `seed_db.py`. Sync between the DB and API is configured
+to perform every 10 seconds.
+
 Run server:
 ```bash
 $ ./run.sh
 ```
 
-Database already seeded with fake data. To re-seed DB, use `seed_db.py`. Sync between the DB and API is configured 
-to perform every 10 seconds  
- 
+## Requests
+List cars:
+```bash
+curl --request GET 'http://127.0.0.1:5000/cars'
+```
+List cars with a filter:
+```bash
+curl --request GET 'http://127.0.0.1:5000/cars?color=White'
+```
+Add a car:
+```bash
+curl --request POST 'http://127.0.0.1:5000/cars' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "brand": "Wooling",
+    "model": "Cheetah",
+    "color": "Pink",
+    "dealer_id": 1
+}'
+```
+Delete a car:
+```bash
+curl --request DELETE 'http://127.0.0.1:5000/cars/1'
+```
+List dealers:
+```bash
+curl --request GET 'http://127.0.0.1:5000/dealers'
+```
+Add a dealer:
+```bash
+curl --request POST 'http://127.0.0.1:5000/dealers' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "KyivAutoTorg",
+    "address": "Ukraine, Kyiv, Maidan Nezalezhnosti square, 1"
+}'
+```
+Delete a dealer:
+```bash
+curl --request DELETE 'http://127.0.0.1:5000/dealers/1'
+```

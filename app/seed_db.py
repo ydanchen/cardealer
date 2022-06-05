@@ -3,8 +3,8 @@ from random import choice, randint
 from app import DataBase
 from app.data.models import Dealer, Car
 
-FIRST_NAME_PART = ['Ukr', 'Avto', 'Biz', 'Bud', 'Motor', 'Oil']
-SECOND_NAME_PART = ['Group', 'Deal', 'Auto', 'Center', 'Stroi', 'Prodazha']
+FIRST_NAME_PART = ['Ukr', 'Avto', 'Biz', 'Bud', 'Motor', 'Oil', 'Vip']
+SECOND_NAME_PART = ['Group', 'Deal', 'Auto', 'Center', 'Stroi', 'Prodazha', 'Torg']
 CITIES = ['Kyiv', 'Kharkov', 'Lviv', 'Odessa', 'Dnipro', 'Kherson', 'Sumy']
 STREETS = ['Shevchenko', 'Heroiv UPA', 'Okruzhnaya', 'Lesi Ukrainki', '1-ya Liniya', '2-ya Liniya']
 COLORS = ['Red', 'White', 'Black', 'Gray', 'Yellow', 'Blue', 'Green']
