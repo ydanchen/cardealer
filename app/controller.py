@@ -9,10 +9,9 @@ def get_cars(color_filter: str, model_filter: str) -> list:
         filters.append(f"color = '{color_filter}'")
     if model_filter:
         filters.append(f"model = '{model_filter}'")
-    where_part = f" WHERE {' AND '.join(filters)}"
 
     if color_filter or model_filter:
-        query = query + where_part
+        query = query + f" WHERE {' AND '.join(filters)}"
 
     records = DATABASE.execute(query).fetchall()
     return [Car(id=r[0], brand=r[1], model=r[2], color=r[3], dealer_id=r[4]) for r in records]
@@ -42,7 +41,7 @@ def get_dealers() -> list:
 
 
 def delete_dealer(dealer_id: int) -> None:
-    query = f"DELETE from dealers WHERE id=={dealer_id}"
+    query = f"DELETE from dealers WHERE id={dealer_id}"
     DATABASE.execute(query)
 
 
